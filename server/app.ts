@@ -3,7 +3,7 @@ import cors from "cors"
 
 //--------
 import { t } from "./trpc.js";
-import appRouter from "./routers/index.js";
+import { mergedRouters } from "./routers/index.js";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 
 
@@ -14,7 +14,7 @@ app.use(
     origin: "http://localhost:5173",
   })
 );
-app.use("/trpc",createExpressMiddleware({router:appRouter}))
+app.use("/trpc",createExpressMiddleware({router:mergedRouters}))
 
 app.get("/", (req, res) => {
   res.send("Hello World");
@@ -23,4 +23,5 @@ app.get("/", (req, res) => {
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
 });
+export type mergedRouters = typeof mergedRouters
 
