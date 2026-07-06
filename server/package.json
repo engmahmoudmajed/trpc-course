@@ -12,6 +12,8 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@trpc/server": "^11.18.0",
+    "@types/cors": "^2.8.19",
     "cors": "^2.8.6",
     "express": "^5.2.1"
   },
