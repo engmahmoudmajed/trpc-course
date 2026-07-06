@@ -20,5 +20,7 @@ const appRouter = t.router({
 
 
 })
-export type AppRouter = typeof appRouter
-export default appRouter
+
+
+// merge router to make routers at the same level
+export const mergedRouters =  t.mergeRouters(appRouter,userRouter)
