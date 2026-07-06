@@ -1,5 +1,5 @@
 import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
-import type { AppRouter } from "../../server/app"
+import type { AppRouter } from "../../server/routers/index"
 
 // httpBatchLink its help us make stop the same request
 // diffrent time 

@@ -1,6 +1,6 @@
 import './App.css'
 import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
-import type { AppRouter } from "../../server/app"
+import type { AppRouter } from "../../server/routers/index"
 
 const client = createTRPCProxyClient<AppRouter>({
   links:[httpBatchLink({
@@ -11,10 +11,12 @@ const client = createTRPCProxyClient<AppRouter>({
 function App() {
 
 async function main() {
-  const result = await client.sayHi.query()
-  console.log(result)
-  const result_2 = await client.logToServer.mutate("Hi from client")
-  console.log(result_2)
+  const result = await client.sayHi.query();
+  console.log(result);
+  const result_2 = await client.logToServer.mutate("Hi from client");
+  console.log(result_2);
+  const result_3 = await client.users.getUser.query();
+  console.log(result_3)
 }
 main()
 
